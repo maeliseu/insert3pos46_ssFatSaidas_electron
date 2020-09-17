@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Insert!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  </head>
+  <body>
+    <form action="">
+      <!-- <label id="displayDate"></label> -->
+      <div>
+        <label for="arquivo">Escolha o arquivo:</label>
+        <input type="file" id="arquivo" name="arquivo" accept="text/plain">
+      </div>
+      <div>
+        <ul id="lista">
+        </ul>
+      </div>
+      <div>
+        <label for="processadas">Linhas Porcessadas:</label>
+        <input id="processadas" name="processadas" type="text" disabled>
+      </div>
+      <div>
+        <button id="executar" disabled="disabled">Executar</button>
+      </div>
+      <div>
+        <button id="close-btn">Exit</button>
+      </div>
+
+
+    </form>
+
+    <script>
+      
+      const {ipcRenderer} = require('electron');
+      const closeApp = document.getElementById("close-btn");
+      closeApp.addEventListener('click', () => {
+        // e.preventDefault();
+        ipcRenderer.send('close-me')
+      });
+
+      // //Recebe do Main o valor e coloca no label de id "displayDate"
+      // ipcRenderer.on('displayDate',(event, data) => {
+      //   document.getElementById("displayDate").innerHTML = data;
+      // });
+      
+      document.getElementById("arquivo").onchange = function(){
+        var value = document.getElementById("arquivo").value;
+        if (value) 
+          {document.getElementById("executar").disabled = false;}
+        else
+          {document.getElementById("executar").disabled = true;}
+      };
+
+
+      addAnother = function(arg) {
+          // console.log(arg);
+          var ul = document.getElementById("lista");
+          var li = document.createElement("li");
+          var children = ul.children.length + 1
+          li.setAttribute("id", "element"+children)
+          li.appendChild(document.createTextNode(arg));
+          ul.appendChild(li)
+      };
+
+      const execute = document.getElementById('executar');
+      execute.addEventListener('click', (e) =>{
+        e.preventDefault();
+        var filetarget = document.getElementById("arquivo").files[0]
+        addAnother(filetarget.name);
+        document.getElementById("arquivo").value = "";
+        document.getElementById("executar").disabled = true;
+        ipcRenderer.send('execute', filetarget.path)
+      });
+
+
+
+    </script>
+    
+  </body>
+</html>
