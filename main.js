@@ -45,7 +45,7 @@ app.on('activate', () => {
 // Nesse arquivo, você pode incluir o resto do código principal
 // de processos do seu aplicativo.
 // Você também pode colocar eles em arquivos separados e requeridos-as aqui.
-var myVar = setInterval(myTimer ,1000);
+// var myVar = setInterval(myTimer ,1000);
 const {ipcMain}     	= require('electron');
 
 
@@ -86,11 +86,12 @@ ipcMain.on('execute', (evt, arg) => {
       
       var lineItens = line.split("|");
       lineItens[45] ? lineItens[45]="3" : console.log("fim");
-      file.write(lineItens.join('|'));
+      file.write(lineItens.join('|')+"\n");
       cont_line ++;
       
   })
-  console.log(cont_line);
+  // console.log(cont_line);
+  win.webContents.send("displayProcessadas", cont_line);
 
   // for(i in array) {
   //   line_list = array[i].split("|")
@@ -107,12 +108,12 @@ ipcMain.on('execute', (evt, arg) => {
 });
 
 
-function myTimer() {
-    var d = new Date(), displayDate;   
-    displayDate = d.toLocaleTimeString('pt-BR', {timeZone: 'America/Belem'});
+// function myTimer() {
+//     var d = new Date(), displayDate;   
+//     displayDate = d.toLocaleTimeString('pt-BR', {timeZone: 'America/Belem'});
     
     // //envia para render no canal "displayDate" o valor de displayDate
     // win.webContents.send("displayDate", displayDate);
     
     
-}
+// }

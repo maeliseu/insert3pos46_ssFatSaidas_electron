@@ -5,10 +5,10 @@
     <title>Insert!</title>
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <form action="">
-      <!-- <label id="displayDate"></label> -->
       <div>
         <label for="arquivo">Escolha o arquivo:</label>
         <input type="file" id="arquivo" name="arquivo" accept="text/plain">
@@ -17,15 +17,15 @@
         <ul id="lista">
         </ul>
       </div>
-      <div>
+      <!-- <div>
         <label for="processadas">Linhas Porcessadas:</label>
-        <input id="processadas" name="processadas" type="text" disabled>
+        <input id="processadas" name="processadas" type="text" value="0" disabled>
+      </div> -->
+      <div>
+        <button id="executar" class="button" disabled="true" >Executar</button>
       </div>
       <div>
-        <button id="executar" disabled="disabled">Executar</button>
-      </div>
-      <div>
-        <button id="close-btn">Exit</button>
+        <button id="close-btn" class="button" >Exit</button>
       </div>
 
 
@@ -74,7 +74,14 @@
         ipcRenderer.send('execute', filetarget.path)
       });
 
-
+      // //Recebe do Main o valor das linhas tratas
+      ipcRenderer.on('displayProcessadas',(event, data) => {
+        // document.getElementById("processadas").value = data;
+        var ul = document.getElementById("lista");
+        var children = ul.children.length
+        var li = document.getElementById("element"+children)
+        li.innerHTML = li.innerHTML+" ------> linhas: "+data;
+      });
 
     </script>
     
