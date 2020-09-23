@@ -1,5 +1,34 @@
 body{
-    background-color: dimgray;
+    background-color: rgba(152, 154, 158, 0.918);
+}
+
+.container{
+    padding: 20px;
+    margin: auto;
+    /* display: flex;
+    flex-flow: row wrap; */
+    
+}
+
+.findfile{
+    height: 50px;
+    width: 200px;
+}
+
+.contbutton{
+    width: 90%;
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.listaprocessados{
+    width: 400px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.541);
 }
 
 button.button{
@@ -23,11 +52,11 @@ button.button:hover{
 }
 
 #executar{
-    background-color:#4e9af1;
+    background-color:#419e35;
 }
 
 #close-btn{
-    background-color:#f14e4e
+    background-color:#ac4949
 }
 
 #executar:disabled{
@@ -49,10 +78,4 @@ button.button:hover{
     }
 }
 
-#executar{
-    background-color:#4e9af1;
-}
 
-#close-btn{
-    background-color:#f14e4e
-}

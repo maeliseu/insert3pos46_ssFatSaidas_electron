@@ -1,4 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
+
+
+// Enable live reload for all the files inside your project directory
+// require('electron-reload')(__dirname);
+
 
 /** Define window's variable in the global scope */
 let win;
@@ -46,7 +51,7 @@ app.on('activate', () => {
 // de processos do seu aplicativo.
 // Você também pode colocar eles em arquivos separados e requeridos-as aqui.
 // var myVar = setInterval(myTimer ,1000);
-const {ipcMain}     	= require('electron');
+// const {ipcMain}     	= require('electron');
 
 
 
