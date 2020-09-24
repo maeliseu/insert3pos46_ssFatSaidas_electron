@@ -2,7 +2,7 @@
 - Open file and insert in position 46 the number 3
 <br>
 <br>
-#### Initial Setup
+### Initial Setup
 
 **Execute APP**
 
