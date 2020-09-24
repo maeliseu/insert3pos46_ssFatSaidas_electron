@@ -1,17 +1,26 @@
 # Initial Setup
 
-#### Electron Forge
-Create a new app with Electron Forge - it provides a solid starting point for building and distributing the app.
+https://github.com/maeliseu/insert3pos46_ssFatSaidas_electron
 
+**Execute APP**
+`cd my-app`
+`npm start`
 
-> npx create-electron-app my-app
+**Make APP**
+`npm run make`
 
-Execute APP
->cd my-app
->npm start
+**Path instaler**
 
-Make APP
->npm run make
+`my-app\out\make\squirrel.windows\x64`
 
-Path instaler
-my-app\out\make\squirrel.windows\x64
+<br>
+## Features
+- Open file and insert in position 46 the number 3
+<br>
+
+<br>
+<br>
+
+>Electron Forge
+>Create a new app with Electron Forge - it provides a solid starting point for building and distributing the app.
+>`npx create-electron-app my-app`
