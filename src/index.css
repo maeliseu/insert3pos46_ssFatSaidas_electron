@@ -3,33 +3,43 @@ body{
 }
 
 .container{
-  padding: 20px;
+  padding: 5px;
   margin: auto;
   /* display: flex;
-  flex-flow: row wrap; */
-  
+  flex-direction: column; */
+}
+
+.containerform{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: white; */
 }
 
 .findfile{
+  width: 400px;
   height: 50px;
-  width: 200px;
+  /* background-color: yellow; */
 }
 
 .contbutton{
-  width: 90%;
+  height: 50px;
   display: flex;
-  position: absolute;
+  /* position: absolute;
   bottom: 10px;
-  left: 50px;
+  left: 50px; */
   flex-direction: row;
   justify-content: space-between;
+  /* background-color: #419e35; */
+  align-items: center;
 }
 
 .listaprocessados{
-  width: 400px;
+  /* width: 400px; */
   height: 200px;
   background-color: rgba(255, 255, 255, 0.541);
 }
+  
 
 button.button{
   display:inline-block;
@@ -42,6 +52,7 @@ button.button{
   font-family:'Roboto',sans-serif;
   font-weight:700;
   letter-spacing: 0.1em;
+  font-size: 15px;
   color:#FFFFFF;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
   text-align:center;
@@ -49,6 +60,8 @@ button.button{
 }
 button.button:hover{
   border-color: rgba(255,255,255,1);
+  font-size: 17px; ;
+  transition: .5s;
 }
 
 #executar{
